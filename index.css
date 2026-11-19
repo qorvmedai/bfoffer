@@ -803,6 +803,38 @@ p {
   line-height: 1.5;
 }
 
+.team-testimonial-quote {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.team-testimonial-quote:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.team-testimonial-quote p {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.team-testimonial-quote cite {
+  display: block;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+/* Rachael image fix — center on face */
+.team-card-rachael .team-img img {
+  object-position: center 15%;
+}
+
 /* Brand Card Variant for Tehilla Amplify Solutions */
 .team-card.brand-card {
   background: linear-gradient(145deg, rgba(215, 255, 50, 0.05) 0%, var(--bg-card) 60%);
@@ -815,9 +847,16 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at center, rgba(215, 255, 50, 0.12) 0%, #0c0c0c 100%);
-  padding: 24px;
+  background: #0c1a2e;
+  padding: 0;
   border-bottom: 1px solid var(--glass-border);
+}
+
+.team-card.brand-card .brand-logo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
 }
 
 .team-card.brand-card .brand-icon-wrapper {
@@ -2301,6 +2340,112 @@ p {
 }
 
 /* --------------------------------------------------------------------------
+   YOUTUBE SHORTS EMBED STYLING
+   -------------------------------------------------------------------------- */
+.short-video-embed {
+  max-width: 400px;
+  margin: 48px auto;
+  position: relative;
+}
+
+.short-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 177.78%; /* 9:16 vertical aspect ratio */
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--glass);
+  border: 1px solid rgba(215, 255, 50, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(215, 255, 50, 0.06);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.short-video-wrapper:hover {
+  border-color: rgba(215, 255, 50, 0.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 60px rgba(215, 255, 50, 0.1);
+}
+
+.short-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--radius-xl);
+}
+
+/* --------------------------------------------------------------------------
+   TESTIMONIALS SHOWCASE — Grouped by Team Member
+   -------------------------------------------------------------------------- */
+.testimonials-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-top: 48px;
+}
+
+.testimonial-group {
+  position: relative;
+}
+
+.testimonial-group-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  background: var(--glass);
+  border: 1px solid rgba(215, 255, 50, 0.2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-pill);
+  margin-bottom: 24px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-group-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Per-group accent color borders */
+#testimonial-group-tgm .testimonial-card {
+  border-top: 3px solid var(--accent);
+}
+
+#testimonial-group-sage .testimonial-card {
+  border-top: 3px solid #58c4ff;
+}
+
+#testimonial-group-mao .testimonial-card {
+  border-top: 3px solid #ff7eb3;
+}
+
+#testimonial-group-tas .testimonial-card {
+  border-top: 3px solid #ffc857;
+}
+
+#testimonial-group-sage .quote-mark,
+#testimonial-group-sage .quote-author {
+  color: #58c4ff;
+}
+
+#testimonial-group-mao .quote-mark,
+#testimonial-group-mao .quote-author {
+  color: #ff7eb3;
+}
+
+#testimonial-group-tas .quote-mark,
+#testimonial-group-tas .quote-author {
+  color: #ffc857;
+}
+
+/* --------------------------------------------------------------------------
    26. RESPONSIVE BREAKPOINTS & MEDIA QUERIES
    -------------------------------------------------------------------------- */
 
@@ -2347,6 +2492,20 @@ p {
   .audience-grid,
   .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+
+  .short-video-embed {
+    max-width: 320px;
+    margin: 36px auto;
+  }
+
+  .testimonials-showcase {
+    gap: 40px;
+  }
+
+  .testimonial-group-label {
+    font-size: 0.78rem;
+    padding: 8px 14px;
   }
 
   /* Sticky Mobile CTA activation */
